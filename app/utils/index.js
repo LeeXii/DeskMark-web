@@ -9,6 +9,7 @@ export function getAll(){
 		const results = STORAGE.getItem(STORAGE_KEY);
 		try{
 			resolve(
+				// 将字符串转化为数组
 				results ? JSON.parse(results) : []
 			);
 		}catch(e){
@@ -22,6 +23,7 @@ export function saveAll(results){
 	return new Promise((resolve) => {
 		STORAGE.setItem(
 			STORAGE_KEY,
+			// localStorage中存储的是字符串
 			JSON.stringify(results)
 		);
 		resolve();
